@@ -4,11 +4,9 @@ import (
 	"os"
 
 	"github.com/tae2089/godevops/internal/base64"
-	"github.com/tae2089/godevops/internal/redis"
 	"github.com/tae2089/godevops/internal/loadtest"
 	"github.com/tae2089/godevops/internal/redis"
 	"github.com/tae2089/godevops/internal/version"
-
 
 	"github.com/spf13/cobra"
 	"github.com/tae2089/godevops/internal/myip"
@@ -38,5 +36,4 @@ func init() {
 	rootCmd.AddCommand(base64.Base64Cmd)
 	rootCmd.AddCommand(redis.RedisCmd)
 	rootCmd.AddCommand(loadtest.LoadCmd)
-	rootCmd.AddCommand(redis.RedisCmd)
 }
