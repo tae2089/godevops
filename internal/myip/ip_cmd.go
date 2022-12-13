@@ -5,9 +5,8 @@ import (
 )
 
 var Myipcmd = &cobra.Command{
-	Use:     "version",
-	Aliases: []string{"rev"},
-	Short:   "print the version",
+	Use:   "ip",
+	Short: "what is myip",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		err := GetMyIp()
 		return err
