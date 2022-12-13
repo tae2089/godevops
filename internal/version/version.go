@@ -1,7 +1,7 @@
 package version
 
 import (
-	"fmt"
+	"log"
 
 	"github.com/spf13/cobra"
 )
@@ -11,6 +11,6 @@ var VersionCmd = &cobra.Command{
 	Aliases: []string{"rev"},
 	Short:   "print the version",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("godevops version - v0.0.1")
+		log.Println("godevops version - v0.0.1")
 	},
 }
