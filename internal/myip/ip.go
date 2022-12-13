@@ -7,19 +7,18 @@ import (
 )
 
 // GetMyIp print my public ip
-func GetMyIp() {
+func GetMyIp() error {
 
 	resp, err := http.Get("https://ipinfo.io/ip")
 
 	if err != nil {
-		log.Println(err)
-		return
+		return err
 	}
 	defer resp.Body.Close()
 	data, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		log.Println(err)
-		return
+		return err
 	}
 	log.Println("myip - " + string(data))
+	return nil
 }

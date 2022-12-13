@@ -4,6 +4,7 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
+	"github.com/tae2089/godevops/internal/myip"
 	"github.com/tae2089/godevops/internal/version"
 )
 
@@ -27,4 +28,5 @@ func Execute() {
 
 func init() {
 	rootCmd.AddCommand(version.VersionCmd)
+	rootCmd.AddCommand(myip.Myipcmd)
 }
