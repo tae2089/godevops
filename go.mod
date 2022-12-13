@@ -6,6 +6,7 @@ require github.com/stretchr/testify v1.8.1
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/spf13/cobra v1.6.1 // indirect
