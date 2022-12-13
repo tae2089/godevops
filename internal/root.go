@@ -3,6 +3,8 @@ package internal
 import (
 	"os"
 
+	"github.com/tae2089/godevops/internal/base64"
+
 	"github.com/spf13/cobra"
 	"github.com/tae2089/godevops/internal/myip"
 	"github.com/tae2089/godevops/internal/version"
@@ -29,4 +31,5 @@ func Execute() {
 func init() {
 	rootCmd.AddCommand(version.VersionCmd)
 	rootCmd.AddCommand(myip.Myipcmd)
+	rootCmd.AddCommand(base64.Base64Cmd)
 }
