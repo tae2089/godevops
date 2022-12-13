@@ -32,4 +32,5 @@ func init() {
 	rootCmd.AddCommand(version.VersionCmd)
 	rootCmd.AddCommand(myip.Myipcmd)
 	rootCmd.AddCommand(base64.Base64Cmd)
+	rootCmd.AddCommand(myip.Myipcmd)
 }
