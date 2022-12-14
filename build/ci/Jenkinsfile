@@ -1,0 +1,49 @@
+pipline{
+    environment{
+        gitRepository = ""
+        dockerImage = ""
+        deployGitRepository = ""
+        deployGitRepositoryPath = "docker"
+        registry= ""
+        imageName = ""
+        slackChannel = ""
+        branch = "master"
+    }
+    agent any
+    stages {         
+        stage('Cloning Git') {
+            steps {
+                slackSend (channel: slackChannel, color: '#00FF00', message: "godevops CI 과정 시작 \n Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                git([url: gitRepository, branch: branch, credentialsId: 'ssh-key'])
+            }
+        }      
+        stage('Building our image') { 
+            steps { 
+                script { 
+                    dockerImage = docker.build "$registry/$imageName:$BUILD_NUMBER"
+                }
+            } 
+        }
+        stage('Push Image') {
+            steps{
+                script {
+                docker.withRegistry( "https://$registry", registryCredential ) {
+                dockerImage.push()
+                    }
+                }
+            }
+        }
+        stage('Deploy our image') { 
+            steps { 
+                script {
+                    sh 'docker push $repository:$BUILD_NUMBER' //docker push
+                } 
+            }
+        } 
+        stage('Cleaning up') { 
+            steps { 
+                sh "docker rmi $repository:$BUILD_NUMBER" // docker image 제거
+            }
+        } 
+    }
+}
