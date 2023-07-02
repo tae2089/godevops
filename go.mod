@@ -5,6 +5,11 @@ go 1.18
 require github.com/stretchr/testify v1.8.1
 
 require (
+	github.com/nametake/golangci-lint-langserver v0.0.7 // indirect
+	github.com/sourcegraph/jsonrpc2 v0.0.0-20191222043438-96c4efab7ee2 // indirect
+)
+
+require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
